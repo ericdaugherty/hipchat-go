@@ -173,16 +173,16 @@ func (c *CardDescription) UnmarshalJSON(data []byte) error {
 
 // Icon represents an icon
 type Icon struct {
-	URL   string `json:"url"`
-	URL2x string `json:"url@2x,omitempty"`
+	URL string `json:"url"`
+	//URL2x string `json:"url@2x,omitempty"`
 }
 
 // Thumbnail represents a thumbnail image
 type Thumbnail struct {
-	URL    string `json:"url"`
-	URL2x  string `json:"url@2x,omitempty"`
-	Width  uint   `json:"width,omitempty"`
-	Height uint   `json:"url,omitempty"`
+	URL string `json:"url"`
+	//URL2x  string `json:"url@2x,omitempty"`
+	Width  uint `json:"width,omitempty"`
+	Height uint `json:"url,omitempty"`
 }
 
 // Attribute represents an attribute on a Card
@@ -347,7 +347,7 @@ func (gs *GlanceStatus) UnmarshalJSON(data []byte) error {
 	case "lozenge":
 		gs.Value = AttributeValue{Type: val["type"].(string), Label: val["label"].(string)}
 	case "icon":
-		gs.Value = Icon{URL: val["url"].(string), URL2x: val["url@2x"].(string)}
+		gs.Value = Icon{URL: val["url"].(string)}
 	}
 
 	return nil
